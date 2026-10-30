@@ -1,0 +1,6 @@
+{
+  "name": "coffee-table-render",
+  "private": true,
+  "scripts": { "render": "node render.cjs" },
+  "dependencies": { "three": "0.170.0" }
+}

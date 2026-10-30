@@ -1,0 +1,34 @@
+<!doctype html><html><head><style>html,body{margin:0;background:#ece9e4}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script></head>
+<body><script type="module">
+import * as THREE from 'three';
+import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+const p = new URLSearchParams(location.search);
+const az = +p.get('az'), el = +p.get('el'), dist = +(p.get('d')||2300);
+const r = new THREE.WebGLRenderer({antialias:true, preserveDrawingBuffer:true});
+r.setSize(1600,1100); r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
+r.toneMapping = THREE.ACESFilmicToneMapping; r.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(r.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0xe9e6e1);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x8a8178, 1.4));
+const sun = new THREE.DirectionalLight(0xfff4e6, 2.6); sun.position.set(900,1800,1300);
+sun.castShadow = true; sun.shadow.mapSize.set(4096,4096);
+Object.assign(sun.shadow.camera,{left:-1200,right:1200,top:1200,bottom:-1200,near:10,far:5000}); sun.shadow.bias=-0.0004;
+scene.add(sun);
+const fill = new THREE.DirectionalLight(0xdfe8ff, 0.6); fill.position.set(-1500,600,-800); scene.add(fill);
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(8000,8000), new THREE.MeshStandardMaterial({color:0x6d6a66, roughness:0.9}));
+floor.rotation.x = -Math.PI/2; floor.receiveShadow = true; scene.add(floor);
+new STLLoader().load('../output/coffee_table_3d.stl', g => {
+  g.computeVertexNormals();
+  // STL is Z-up (x = stack, y = width, z = height); convert to Y-up and center.
+  g.rotateX(-Math.PI/2); g.computeBoundingBox();
+  const c = new THREE.Vector3(); g.boundingBox.getCenter(c); g.translate(-c.x, -g.boundingBox.min.y, -c.z);
+  const m = new THREE.Mesh(g, new THREE.MeshStandardMaterial({color:0xd9b98c, roughness:0.62, flatShading:false}));
+  m.castShadow = m.receiveShadow = true; scene.add(m);
+  const cam = new THREE.PerspectiveCamera(32, 1600/1100, 10, 20000);
+  const a = az*Math.PI/180, e = el*Math.PI/180;
+  cam.position.set(dist*Math.cos(e)*Math.sin(a), dist*Math.sin(e)+200, dist*Math.cos(e)*Math.cos(a));
+  cam.lookAt(0,170,0);
+  r.render(scene, cam); document.title = 'done';
+});
+</script></body></html>

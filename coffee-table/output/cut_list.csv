@@ -1,0 +1,35 @@
+part,qty,material,size_mm,notes
+RIB 01,1,18 mm plywood (sheet 1),903.7 x 384.4,end rib: 22 mm counterbores 10 mm deep on outside face
+RIB 02,1,18 mm plywood (sheet 1),904.0 x 392.1,
+RIB 03,1,18 mm plywood (sheet 1),906.4 x 397.4,
+RIB 04,1,18 mm plywood (sheet 1),911.6 x 400.9,
+RIB 05,1,18 mm plywood (sheet 1),913.9 x 403.2,
+RIB 06,1,18 mm plywood (sheet 2),914.4 x 404.7,
+RIB 07,1,18 mm plywood (sheet 2),914.4 x 405.5,
+RIB 08,1,18 mm plywood (sheet 2),914.4 x 406.0,
+RIB 09,1,18 mm plywood (sheet 2),914.4 x 406.2,
+RIB 10,1,18 mm plywood (sheet 2),914.4 x 406.3,
+RIB 11,1,18 mm plywood (sheet 3),914.4 x 406.4,
+RIB 12,1,18 mm plywood (sheet 3),914.4 x 406.4,
+RIB 13,1,18 mm plywood (sheet 3),914.4 x 406.4,
+RIB 14,1,18 mm plywood (sheet 3),914.4 x 406.4,
+RIB 15,1,18 mm plywood (sheet 3),914.4 x 406.4,
+RIB 16,1,18 mm plywood (sheet 4),914.4 x 406.4,
+RIB 17,1,18 mm plywood (sheet 4),914.4 x 406.4,
+RIB 18,1,18 mm plywood (sheet 4),914.4 x 406.4,
+RIB 19,1,18 mm plywood (sheet 4),914.4 x 406.4,
+RIB 20,1,18 mm plywood (sheet 4),914.4 x 406.4,
+RIB 21,1,18 mm plywood (sheet 5),914.4 x 406.3,
+RIB 22,1,18 mm plywood (sheet 5),914.4 x 406.2,
+RIB 23,1,18 mm plywood (sheet 5),914.4 x 406.0,
+RIB 24,1,18 mm plywood (sheet 5),914.4 x 405.5,
+RIB 25,1,18 mm plywood (sheet 5),914.4 x 404.7,
+RIB 26,1,18 mm plywood (sheet 6),914.0 x 403.2,
+RIB 27,1,18 mm plywood (sheet 6),911.8 x 400.9,
+RIB 28,1,18 mm plywood (sheet 6),907.7 x 397.4,
+RIB 29,1,18 mm plywood (sheet 6),903.4 x 392.1,
+RIB 30,1,18 mm plywood (sheet 6),903.7 x 384.4,end rib: 22 mm counterbores 10 mm deep on outside face
+Threaded rod M8,5,zinc or stainless steel,910 long,trim flush with nut after tightening
+Spacer tube,145,16 OD x 8.5 ID tube,12.9 long,aluminium or nylon; cut to measured gap
+Nut M8 + washer,10,steel,,sits in end-rib counterbores
+Felt pad 12 mm,60,self-adhesive,,one under each rib foot

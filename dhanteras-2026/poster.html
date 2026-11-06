@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Happy Dhanteras – Metal Craft Studio</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --maroon-1:#5a0f14; --maroon-2:#2a0508; --maroon-3:#160204;
+    --gold-1:#fff4c7; --gold-2:#f6c453; --gold-3:#c8901c; --gold-4:#8a5a0b;
+    --cream:#fbe9c2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--maroon-3)}
+  body{width:var(--w);height:var(--h);overflow:hidden}
+  body.post{--w:1080px;--h:1350px}
+  body.status{--w:1080px;--h:1920px}
+
+  .card{
+    position:relative;width:100%;height:100%;overflow:hidden;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 52%, #7a1a1c 0%, var(--maroon-1) 30%, var(--maroon-2) 70%, var(--maroon-3) 100%);
+    color:var(--cream);font-family:'Cormorant Garamond',serif;
+  }
+  svg.bg{position:absolute;inset:0;width:100%;height:100%}
+  .frame{position:absolute;inset:30px;border:3px solid var(--gold-3);border-radius:18px;
+         box-shadow:inset 0 0 0 9px rgba(0,0,0,0), inset 0 0 0 11px rgba(246,196,83,.55)}
+  .frame::before,.frame::after{content:"";position:absolute;width:70px;height:70px;border:3px solid var(--gold-2)}
+  .frame::before{top:-14px;left:-14px;border-right:none;border-bottom:none;border-radius:14px 0 0 0}
+  .frame::after{bottom:-14px;right:-14px;border-left:none;border-top:none;border-radius:0 0 14px 0}
+
+  .content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;text-align:center;
+           padding:178px 90px 86px}
+  body.status .content{padding:260px 90px 170px}
+
+  .brand{font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:.42em;font-size:24px;
+         color:var(--gold-2);text-transform:uppercase;display:flex;align-items:center;gap:22px}
+  .brand i{display:block;width:70px;height:2px;background:linear-gradient(90deg,transparent,var(--gold-2))}
+  .brand i:last-child{background:linear-gradient(270deg,transparent,var(--gold-2))}
+
+  .gold-text{
+    background:linear-gradient(180deg,var(--gold-1) 0%,var(--gold-2) 45%,var(--gold-3) 70%,#ffe39a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 3px 0 rgba(60,8,10,.9)) drop-shadow(0 0 18px rgba(246,196,83,.35));
+  }
+  .hindi{font-family:'Yatra One',serif;font-size:132px;line-height:1.15;margin-top:34px}
+  .english{font-family:'Cinzel Decorative',serif;font-weight:900;font-size:66px;letter-spacing:.04em;margin-top:2px}
+
+  .divider{margin:22px auto 0;width:420px;height:24px}
+
+  .art{flex:1;width:100%;display:flex;align-items:center;justify-content:center;min-height:0}
+  .art svg{height:100%;max-height:560px;width:auto;overflow:visible}
+  body.status .art svg{max-height:760px}
+
+  .wish{margin-top:18px;font-style:italic;font-weight:500;font-size:37px;line-height:1.35;color:var(--cream);max-width:860px}
+  .wish b{font-style:normal;font-weight:600;color:var(--gold-2)}
+  .from{margin-top:30px;font-family:'Montserrat',sans-serif;font-weight:500;font-size:22px;letter-spacing:.18em;
+        text-transform:uppercase;color:rgba(251,233,194,.75)}
+  .from strong{display:block;margin-top:10px;font-family:'Cinzel Decorative',serif;font-weight:700;font-size:40px;
+               letter-spacing:.06em;text-transform:none}
+  .tag{margin-top:12px;font-style:italic;font-size:27px;color:var(--gold-2)}
+</style>
+</head>
+<body class="post">
+<div class="card">
+  <!-- background: mandala, garland, sparkles -->
+  <svg class="bg" id="bg" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div class="frame"></div>
+
+  <div class="content">
+    <div class="brand"><i></i>Metal Craft Studio<i></i></div>
+    <div class="hindi gold-text">शुभ धनतेरस</div>
+    <div class="english gold-text">Happy Dhanteras</div>
+    <svg class="divider" viewBox="0 0 420 24">
+      <defs><linearGradient id="dg" x1="0" x2="1"><stop offset="0" stop-color="#f6c453" stop-opacity="0"/><stop offset=".5" stop-color="#f6c453"/><stop offset="1" stop-color="#f6c453" stop-opacity="0"/></linearGradient></defs>
+      <rect x="0" y="11" width="420" height="2" fill="url(#dg)"/>
+      <path d="M210 2 L220 12 L210 22 L200 12 Z" fill="#f6c453"/>
+      <circle cx="178" cy="12" r="4" fill="#f6c453"/><circle cx="242" cy="12" r="4" fill="#f6c453"/>
+    </svg>
+
+    <div class="art">
+      <svg viewBox="-420 -330 840 620" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#7a4a08"/><stop offset=".18" stop-color="#d39a26"/>
+            <stop offset=".38" stop-color="#fff0b8"/><stop offset=".55" stop-color="#f2bd48"/>
+            <stop offset=".8" stop-color="#b07816"/><stop offset="1" stop-color="#5e3905"/>
+          </linearGradient>
+          <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff2c0"/><stop offset=".5" stop-color="#e6ab33"/><stop offset="1" stop-color="#8a5a0b"/>
+          </linearGradient>
+          <radialGradient id="coin" cx=".4" cy=".35" r=".8">
+            <stop offset="0" stop-color="#fff6cf"/><stop offset=".45" stop-color="#f3c14d"/><stop offset="1" stop-color="#9a660c"/>
+          </radialGradient>
+          <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7fc35a"/><stop offset=".6" stop-color="#2f7d32"/><stop offset="1" stop-color="#1b4d1f"/>
+          </linearGradient>
+          <radialGradient id="coco" cx=".4" cy=".35" r=".75">
+            <stop offset="0" stop-color="#b9763f"/><stop offset=".6" stop-color="#7a4520"/><stop offset="1" stop-color="#3e200c"/>
+          </radialGradient>
+          <linearGradient id="clay" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f0a65a"/><stop offset=".55" stop-color="#c0612a"/><stop offset="1" stop-color="#6e2a10"/>
+          </linearGradient>
+          <radialGradient id="flame" cx=".5" cy=".75" r=".7">
+            <stop offset="0" stop-color="#ffffff"/><stop offset=".25" stop-color="#fff3a0"/>
+            <stop offset=".6" stop-color="#ffb52e"/><stop offset="1" stop-color="#ff5a12"/>
+          </radialGradient>
+          <radialGradient id="glow">
+            <stop offset="0" stop-color="#ffcf5a" stop-opacity=".85"/><stop offset=".35" stop-color="#ff9a2a" stop-opacity=".35"/>
+            <stop offset="1" stop-color="#ff7a00" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="halo">
+            <stop offset="0" stop-color="#ffd977" stop-opacity=".55"/><stop offset=".55" stop-color="#f6a93b" stop-opacity=".14"/>
+            <stop offset="1" stop-color="#f6a93b" stop-opacity="0"/>
+          </radialGradient>
+          <g id="leafShape"><path d="M0 0 C 26 -34 26 -86 0 -120 C -26 -86 -26 -34 0 0 Z" fill="url(#leaf)"/>
+            <path d="M0 -4 L0 -112" stroke="#a9dc86" stroke-width="2" opacity=".7"/></g>
+          <g id="coinShape">
+            <ellipse cx="0" cy="5" rx="34" ry="11" fill="#7a4a08"/>
+            <ellipse cx="0" cy="0" rx="34" ry="11" fill="url(#coin)" stroke="#8a5a0b" stroke-width="1.5"/>
+            <ellipse cx="0" cy="0" rx="22" ry="6.5" fill="none" stroke="#a8730f" stroke-width="1.5" opacity=".8"/>
+          </g>
+          <g id="diya">
+            <ellipse cx="0" cy="-36" rx="120" ry="120" fill="url(#glow)"/>
+            <path d="M-92 -6 C -84 52, 70 58, 88 -6 C 100 -10, 110 -18, 120 -32 C 60 -16, -40 -18, -92 -6 Z" fill="url(#clay)"/>
+            <path d="M-86 4 C -40 18, 40 18, 84 4" fill="none" stroke="#f6c453" stroke-width="5"/>
+            <g fill="#f6c453">
+              <circle cx="-56" cy="22" r="4"/><circle cx="-28" cy="28" r="4"/><circle cx="0" cy="30" r="4"/>
+              <circle cx="28" cy="28" r="4"/><circle cx="56" cy="22" r="4"/>
+            </g>
+            <ellipse cx="0" cy="-8" rx="88" ry="10" fill="#3a1206" opacity=".85"/>
+            <ellipse cx="0" cy="-9" rx="80" ry="6" fill="#d9a03a" opacity=".6"/>
+            <g transform="translate(112 -34)">
+              <circle r="46" fill="url(#glow)"/>
+              <path d="M0 0 C -17 -12 -15 -48 0 -86 C 15 -48 17 -12 0 0 Z" fill="url(#flame)"/>
+              <path d="M0 -6 C -7 -14 -6 -34 0 -50 C 6 -34 7 -14 0 -6 Z" fill="#fff" opacity=".9"/>
+            </g>
+          </g>
+        </defs>
+
+        <!-- halo behind kalash -->
+        <circle cx="0" cy="-30" r="300" fill="url(#halo)"/>
+
+        <!-- kalash -->
+        <g transform="translate(0 0)">
+          <!-- leaves -->
+          <g transform="translate(0 -128)">
+            <use href="#leafShape" transform="rotate(-70) scale(1.15)"/>
+            <use href="#leafShape" transform="rotate(70) scale(1.15)"/>
+            <use href="#leafShape" transform="rotate(-44) scale(1.2)"/>
+            <use href="#leafShape" transform="rotate(44) scale(1.2)"/>
+            <use href="#leafShape" transform="rotate(-10) scale(.9)"/>
+            <use href="#leafShape" transform="rotate(10) scale(.9)"/>
+          </g>
+          <!-- coconut -->
+          <ellipse cx="0" cy="-196" rx="56" ry="66" fill="url(#coco)"/>
+          <path d="M-8 -258 C -4 -280, 4 -290, 14 -296 M0 -260 C 6 -276 16 -282 26 -284 M-6 -258 C -16 -276 -22 -282 -30 -284" stroke="#5a3214" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M-54 -186 C -30 -168, 30 -168, 54 -186 L 50 -160 C 28 -146 -28 -146 -50 -160 Z" fill="#c8102e"/>
+          <path d="M-52 -184 C -30 -166, 30 -166, 52 -184" stroke="#f6c453" stroke-width="3" fill="none"/>
+          <!-- rim -->
+          <ellipse cx="0" cy="-128" rx="92" ry="20" fill="url(#gold)" stroke="#6b4206" stroke-width="2"/>
+          <ellipse cx="0" cy="-131" rx="74" ry="11" fill="#5e3905"/>
+          <!-- neck -->
+          <path d="M-62 -122 L -54 -70 L 54 -70 L 62 -122 Z" fill="url(#gold)"/>
+          <rect x="-58" y="-104" width="116" height="10" fill="#c8102e"/>
+          <rect x="-58" y="-104" width="116" height="2.5" fill="#ffe08a"/>
+          <rect x="-58" y="-96.5" width="116" height="2.5" fill="#ffe08a"/>
+          <!-- body -->
+          <path d="M-56 -72 C -210 -40, -222 150, -86 196 L 86 196 C 222 150, 210 -40, 56 -72 Z" fill="url(#gold)" stroke="#6b4206" stroke-width="2"/>
+          <!-- highlight -->
+          <path d="M-90 -30 C -150 20, -150 110, -100 160" stroke="#fff6d2" stroke-width="10" fill="none" opacity=".45" stroke-linecap="round"/>
+          <!-- engraved bands -->
+          <path d="M-128 -16 C -60 10, 60 10, 128 -16" stroke="#7a4a08" stroke-width="3" fill="none"/>
+          <path d="M-150 120 C -60 150, 60 150, 150 120" stroke="#7a4a08" stroke-width="3" fill="none"/>
+          <g fill="#8a5a0b">
+            <circle cx="-100" cy="0" r="4"/><circle cx="-60" cy="10" r="4"/><circle cx="-20" cy="14" r="4"/>
+            <circle cx="20" cy="14" r="4"/><circle cx="60" cy="10" r="4"/><circle cx="100" cy="0" r="4"/>
+          </g>
+          <!-- swastik-free auspicious emblem: lotus + shree -->
+          <g transform="translate(0 70)">
+            <circle r="46" fill="none" stroke="#7a4a08" stroke-width="3"/>
+            <circle r="38" fill="#c8102e" opacity=".9"/>
+            <text x="0" y="16" text-anchor="middle" font-family="Yatra One" font-size="44" fill="#ffe08a">श्री</text>
+          </g>
+          <!-- base -->
+          <path d="M-86 194 L 86 194 L 108 226 L -108 226 Z" fill="url(#gold)" stroke="#6b4206" stroke-width="2"/>
+          <ellipse cx="0" cy="228" rx="112" ry="10" fill="#5e3905"/>
+        </g>
+
+        <!-- coin stacks -->
+        <g transform="translate(-200 230)">
+          <use href="#coinShape" y="0"/><use href="#coinShape" y="-12"/><use href="#coinShape" y="-24"/><use href="#coinShape" y="-36"/>
+        </g>
+        <g transform="translate(-150 250)"><use href="#coinShape"/><use href="#coinShape" y="-12"/></g>
+        <g transform="translate(200 230)">
+          <use href="#coinShape" y="0"/><use href="#coinShape" y="-12"/><use href="#coinShape" y="-24"/>
+        </g>
+        <g transform="translate(150 252)"><use href="#coinShape"/></g>
+        <g transform="translate(-70 262) rotate(-8)"><use href="#coinShape"/></g>
+        <g transform="translate(76 264) rotate(6)"><use href="#coinShape"/></g>
+
+        <!-- diyas -->
+        <g transform="translate(-330 250) scale(.85)"><use href="#diya"/></g>
+        <g transform="translate(330 250) scale(-.85 .85)"><use href="#diya"/></g>
+      </svg>
+    </div>
+
+    <div class="wish">May Goddess Lakshmi and Lord Dhanvantari bless you with <b>wealth, health &amp; prosperity</b>, and may your home shine as bright as polished brass.</div>
+    <div class="from">With warm wishes from<strong class="gold-text">Metal Craft Studio</strong></div>
+  </div>
+</div>
+
+<script>
+  // format from ?f=post|status
+  const f = new URLSearchParams(location.search).get('f') || 'post';
+  document.body.className = f;
+  const W = 1080, H = f === 'status' ? 1920 : 1350;
+  const NS = 'http://www.w3.org/2000/svg';
+  const bg = document.getElementById('bg');
+  bg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const el = (n, a, p = bg) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e; };
+
+  // mandala behind the art
+  const cx = W / 2, cy = f === 'status' ? H * 0.53 : H * 0.55;
+  const m = el('g', { transform: `translate(${cx} ${cy})`, opacity: .16, fill: 'none', stroke: '#f6c453' });
+  [470, 430, 330, 250].forEach((r, i) => el('circle', { r, 'stroke-width': i % 2 ? 1.5 : 3 }, m));
+  for (let i = 0; i < 32; i++) el('path', { d: 'M0 -330 C 26 -370 26 -410 0 -430 C -26 -410 -26 -370 0 -330 Z', transform: `rotate(${i * 360 / 32})`, 'stroke-width': 2 }, m);
+  for (let i = 0; i < 24; i++) el('path', { d: 'M0 -250 C 30 -275 30 -305 0 -330 C -30 -305 -30 -275 0 -250 Z', transform: `rotate(${i * 15 + 7.5})`, 'stroke-width': 2 }, m);
+  for (let i = 0; i < 64; i++) el('circle', { cx: 0, cy: -450, r: 4, fill: '#f6c453', stroke: 'none', transform: `rotate(${i * 360 / 64})` }, m);
+
+  // corner mandalas
+  [[0, 0], [W, 0], [0, H], [W, H]].forEach(([x, y]) => {
+    const g = el('g', { transform: `translate(${x} ${y})`, opacity: .22, fill: 'none', stroke: '#f6c453', 'stroke-width': 2 });
+    [60, 110, 160].forEach(r => el('circle', { r }, g));
+    for (let i = 0; i < 24; i++) el('path', { d: 'M0 -110 C 16 -128 16 -146 0 -160 C -16 -146 -16 -128 0 -110 Z', transform: `rotate(${i * 15})` }, g);
+  });
+
+  // marigold garland (toran) across the top
+  const defs = el('defs', {});
+  const mg = el('radialGradient', { id: 'mari', cx: '.4', cy: '.35', r: '.7' }, defs);
+  [['0', '#ffd34d'], ['.55', '#ff9a12'], ['1', '#d9560a']].forEach(([o, c]) => el('stop', { offset: o, 'stop-color': c }, mg));
+  const mg2 = el('radialGradient', { id: 'mari2', cx: '.4', cy: '.35', r: '.7' }, defs);
+  [['0', '#fff07a'], ['.55', '#ffc61a'], ['1', '#d98a00']].forEach(([o, c]) => el('stop', { offset: o, 'stop-color': c }, mg2));
+
+  const swags = 4, gTop = 0, sag = 92, span = W / swags;
+  for (let s = 0; s < swags; s++) {
+    const x0 = s * span, n = 15;
+    for (let i = 0; i <= n; i++) {
+      const t = i / n, x = x0 + t * span, y = gTop + 14 + sag * 4 * t * (1 - t);
+      const r = 15 + 4 * Math.sin(t * Math.PI);
+      el('circle', { cx: x, cy: y, r, fill: `url(#${(i + s) % 2 ? 'mari' : 'mari2'})` });
+      el('circle', { cx: x, cy: y, r: r * .35, fill: '#b5400a', opacity: .5 });
+    }
+    // hanging strand with a bell-ish drop at each joint
+    if (s > 0) {
+      const x = x0;
+      for (let k = 0; k < 3; k++) el('circle', { cx: x, cy: 34 + k * 24, r: 12, fill: `url(#${k % 2 ? 'mari' : 'mari2'})` });
+      el('path', { d: `M${x - 13} ${118} C ${x - 13} ${100}, ${x + 13} ${100}, ${x + 13} ${118} L ${x + 17} ${127} L ${x - 17} ${127} Z`, fill: '#f6c453' });
+      el('circle', { cx: x, cy: 132, r: 5, fill: '#f6c453' });
+    }
+    // mango leaves at the swag ends
+    [x0 + 10, x0 + span - 10].forEach((lx, j) => {
+      el('path', { d: 'M0 0 C 12 16 12 40 0 56 C -12 40 -12 16 0 0 Z', fill: '#2f7d32', transform: `translate(${lx} 18) rotate(${j ? -18 : 18})` });
+    });
+  }
+
+  // sparkles
+  let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+  for (let i = 0; i < 90; i++) {
+    const x = 60 + rnd() * (W - 120), y = 200 + rnd() * (H - 280), s = 3 + rnd() * 9;
+    if (Math.abs(x - cx) < 400) continue; // keep the text column clear
+    el('path', { d: `M${x} ${y - s * 2} Q ${x} ${y} ${x + s * 2} ${y} Q ${x} ${y} ${x} ${y + s * 2} Q ${x} ${y} ${x - s * 2} ${y} Q ${x} ${y} ${x} ${y - s * 2} Z`, fill: '#ffe08a', opacity: .35 + rnd() * .5 });
+  }
+</script>
+</body>
+</html>

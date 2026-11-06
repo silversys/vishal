@@ -33,31 +33,52 @@
            padding:178px 90px 86px}
   body.status .content{padding:260px 90px 170px}
 
-  .brand{font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:.42em;font-size:24px;
-         color:var(--gold-2);text-transform:uppercase;display:flex;align-items:center;gap:22px}
-  .brand i{display:block;width:70px;height:2px;background:linear-gradient(90deg,transparent,var(--gold-2))}
+  /* ---- logo: drop your real logo in as logo.png; the MCS monogram is the fallback ---- */
+  .logo{display:flex;flex-direction:column;align-items:center}
+  .logo img{max-height:150px;max-width:420px;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
+  .logo .mono{display:none;flex-direction:column;align-items:center}
+  .logo.fallback .mono{display:flex}
+  .logo.fallback img{display:none}
+  .logo svg{width:112px;height:112px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.5))}
+  .brand{margin-top:10px;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:.42em;font-size:22px;
+         color:var(--gold-2);text-transform:uppercase;display:flex;align-items:center;gap:22px;padding-left:.42em}
+  .brand i{display:block;width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--gold-2))}
   .brand i:last-child{background:linear-gradient(270deg,transparent,var(--gold-2))}
+
+  /* ---- product shelf ---- */
+  .shelf{width:100%;max-width:740px;margin-top:4px}
+  .shelf svg{display:block;width:100%;height:auto}
+  .shelf-cap{margin-top:8px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:18px;letter-spacing:.26em;
+             text-transform:uppercase;color:var(--gold-2)}
+  body.status .shelf{max-width:900px;margin-top:20px}
+  body.status .shelf-cap{font-size:22px}
 
   .gold-text{
     background:linear-gradient(180deg,var(--gold-1) 0%,var(--gold-2) 45%,var(--gold-3) 70%,#ffe39a 100%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
     filter:drop-shadow(0 3px 0 rgba(60,8,10,.9)) drop-shadow(0 0 18px rgba(246,196,83,.35));
   }
-  .hindi{font-family:'Yatra One',serif;font-size:132px;line-height:1.15;margin-top:34px}
-  .english{font-family:'Cinzel Decorative',serif;font-weight:900;font-size:66px;letter-spacing:.04em;margin-top:2px}
+  .hindi{font-family:'Yatra One',serif;font-size:112px;line-height:1.12;margin-top:14px}
+  .english{font-family:'Cinzel Decorative',serif;font-weight:900;font-size:58px;letter-spacing:.04em;margin-top:0}
+  body.status .hindi{font-size:132px;margin-top:40px}
+  body.status .english{font-size:66px}
 
-  .divider{margin:22px auto 0;width:420px;height:24px}
+  .divider{margin:6px auto 0;width:420px;height:24px}
+  body.post .divider{display:none}
 
   .art{flex:1;width:100%;display:flex;align-items:center;justify-content:center;min-height:0}
   .art svg{height:100%;max-height:560px;width:auto;overflow:visible}
-  body.status .art svg{max-height:760px}
+  body.status .art svg{max-height:700px}
 
-  .wish{margin-top:18px;font-style:italic;font-weight:500;font-size:37px;line-height:1.35;color:var(--cream);max-width:860px}
+  .wish{margin-top:22px;font-style:italic;font-weight:500;font-size:33px;line-height:1.3;color:var(--cream);max-width:880px}
+  body.status .wish{font-size:36px;margin-top:44px;max-width:900px}
+  body.status .logo svg{width:140px;height:140px}
+  body.status .logo img{max-height:190px}
   .wish b{font-style:normal;font-weight:600;color:var(--gold-2)}
-  .from{margin-top:30px;font-family:'Montserrat',sans-serif;font-weight:500;font-size:22px;letter-spacing:.18em;
+  .from{margin-top:16px;font-family:'Montserrat',sans-serif;font-weight:500;font-size:20px;letter-spacing:.18em;
         text-transform:uppercase;color:rgba(251,233,194,.75)}
-  .from strong{display:block;margin-top:10px;font-family:'Cinzel Decorative',serif;font-weight:700;font-size:40px;
-               letter-spacing:.06em;text-transform:none}
+  .from strong{font-family:'Cinzel Decorative',serif;font-weight:700;font-size:24px;letter-spacing:.08em;color:var(--gold-2)}
+  body.status .from{margin-top:30px;font-size:22px}
   .tag{margin-top:12px;font-style:italic;font-size:27px;color:var(--gold-2)}
 </style>
 </head>
@@ -68,7 +89,33 @@
   <div class="frame"></div>
 
   <div class="content">
-    <div class="brand"><i></i>Metal Craft Studio<i></i></div>
+    <div class="logo" id="logo">
+      <!-- Real logo: save it as logo.png next to this file (transparent PNG works best on the maroon). -->
+      <img src="logo.png" alt="Metal Craft Studio" onerror="document.getElementById('logo').classList.add('fallback')">
+      <div class="mono">
+        <svg viewBox="-60 -60 120 120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff2c0"/><stop offset=".35" stop-color="#f2bd48"/>
+              <stop offset=".7" stop-color="#b07816"/><stop offset="1" stop-color="#ffe08a"/>
+            </linearGradient>
+            <radialGradient id="lbg"><stop offset="0" stop-color="#6e1418"/><stop offset="1" stop-color="#2a0508"/></radialGradient>
+            <path id="ringPath" d="M0 0 m-41 0 a41 41 0 1 1 82 0 a41 41 0 1 1 -82 0"/>
+          </defs>
+          <circle r="57" fill="url(#lg)"/>
+          <circle r="52" fill="url(#lbg)"/>
+          <circle r="49" fill="none" stroke="url(#lg)" stroke-width="1.5"/>
+          <circle r="33" fill="none" stroke="url(#lg)" stroke-width="1.2" opacity=".8"/>
+          <g fill="url(#lg)">
+            <circle cx="0" cy="-41" r="2.2"/><circle cx="0" cy="41" r="2.2"/>
+            <circle cx="-41" cy="0" r="2.2"/><circle cx="41" cy="0" r="2.2"/>
+            <circle cx="29" cy="-29" r="1.6"/><circle cx="-29" cy="-29" r="1.6"/><circle cx="29" cy="29" r="1.6"/><circle cx="-29" cy="29" r="1.6"/>
+          </g>
+          <text x="0" y="10" text-anchor="middle" font-family="Cinzel Decorative" font-weight="900" font-size="27" fill="url(#lg)" letter-spacing="1">MCS</text>
+        </svg>
+        <div class="brand"><i></i>Metal Craft Studio<i></i></div>
+      </div>
+    </div>
     <div class="hindi gold-text">शुभ धनतेरस</div>
     <div class="english gold-text">Happy Dhanteras</div>
     <svg class="divider" viewBox="0 0 420 24">
@@ -205,8 +252,113 @@
       </svg>
     </div>
 
-    <div class="wish">May Goddess Lakshmi and Lord Dhanvantari bless you with <b>wealth, health &amp; prosperity</b>, and may your home shine as bright as polished brass.</div>
-    <div class="from">With warm wishes from<strong class="gold-text">Metal Craft Studio</strong></div>
+    <!-- product shelf: handcrafted metal pieces -->
+    <div class="shelf">
+      <svg viewBox="0 0 880 176" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#7a4a08"/><stop offset=".22" stop-color="#d9a12e"/>
+            <stop offset=".42" stop-color="#fff0b8"/><stop offset=".6" stop-color="#f0b943"/>
+            <stop offset=".85" stop-color="#a86f12"/><stop offset="1" stop-color="#5e3905"/>
+          </linearGradient>
+          <linearGradient id="shelfLine" x1="0" x2="1">
+            <stop offset="0" stop-color="#f6c453" stop-opacity="0"/><stop offset=".15" stop-color="#f6c453"/>
+            <stop offset=".85" stop-color="#f6c453"/><stop offset="1" stop-color="#f6c453" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="pglow"><stop offset="0" stop-color="#ffd36a" stop-opacity=".75"/><stop offset="1" stop-color="#ff8a00" stop-opacity="0"/></radialGradient>
+          <radialGradient id="window" cx=".5" cy=".7" r=".8"><stop offset="0" stop-color="#fff3b0"/><stop offset=".5" stop-color="#ffb43a"/><stop offset="1" stop-color="#c2410c"/></radialGradient>
+          <radialGradient id="mari3" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#ffd34d"/><stop offset=".6" stop-color="#ff9a12"/><stop offset="1" stop-color="#d9560a"/></radialGradient>
+          <path id="pflame" d="M0 0 C -6 -4 -5 -17 0 -30 C 5 -17 6 -4 0 0 Z" fill="url(#flame)"/>
+          <path id="ray" d="M-6 -31 L0 -56 L6 -31 Z"/>
+          <path id="rayS" d="M-5 -31 L0 -46 L5 -31 Z"/>
+        </defs>
+
+        <!-- shelf -->
+        <rect x="0" y="160" width="880" height="3" fill="url(#shelfLine)"/>
+        <g fill="#000" opacity=".35">
+          <ellipse cx="88" cy="161" rx="40" ry="5"/><ellipse cx="264" cy="161" rx="52" ry="5"/>
+          <ellipse cx="440" cy="161" rx="42" ry="5"/><ellipse cx="616" cy="161" rx="40" ry="5"/><ellipse cx="792" cy="161" rx="36" ry="5"/>
+        </g>
+
+        <g stroke="#5e3905" stroke-width="1.5" stroke-linejoin="round">
+          <!-- 1. lantern -->
+          <g transform="translate(88 160)">
+            <circle cx="0" cy="-60" r="44" fill="url(#pglow)" stroke="none"/>
+            <circle cx="0" cy="-132" r="7" fill="none" stroke="url(#pg)" stroke-width="3.5"/>
+            <path d="M-26 -97 Q0 -134 26 -97 Z" fill="url(#pg)"/>
+            <rect x="-31" y="-100" width="62" height="9" rx="2" fill="url(#pg)"/>
+            <rect x="-26" y="-91" width="52" height="75" fill="url(#pg)"/>
+            <path d="M-20 -26 V-62 Q-12 -80 -4 -62 V-26 Z M4 -26 V-62 Q12 -80 20 -62 V-26 Z" fill="url(#window)"/>
+            <rect x="-31" y="-17" width="62" height="9" rx="2" fill="url(#pg)"/>
+            <path d="M-24 -8 L24 -8 L29 0 L-29 0 Z" fill="url(#pg)"/>
+          </g>
+
+          <!-- 2. urli bowl with floating flowers + tealight -->
+          <g transform="translate(264 160)">
+            <path d="M-18 -9 L18 -9 L25 0 L-25 0 Z" fill="url(#pg)"/>
+            <path d="M-74 -50 C -62 -6, 62 -6, 74 -50 Z" fill="url(#pg)"/>
+            <path d="M-56 -30 C -30 -18, 30 -18, 56 -30" fill="none" stroke="#7a4a08" stroke-width="2"/>
+            <ellipse cx="0" cy="-50" rx="74" ry="10" fill="url(#pg)"/>
+            <ellipse cx="0" cy="-51" rx="65" ry="6.5" fill="#3a1206" stroke="none"/>
+            <circle cx="-36" cy="-55" r="10" fill="url(#mari3)" stroke="#b5400a" stroke-width="1"/>
+            <circle cx="30" cy="-56" r="9" fill="url(#mari3)" stroke="#b5400a" stroke-width="1"/>
+            <circle cx="50" cy="-53" r="7" fill="url(#mari3)" stroke="#b5400a" stroke-width="1"/>
+            <circle cx="-14" cy="-53" r="6" fill="#c8102e" stroke="none"/>
+            <circle cx="4" cy="-74" r="26" fill="url(#pglow)" stroke="none"/>
+            <rect x="-6" y="-60" width="20" height="8" rx="2" fill="#f5f0e6" stroke="#b9a98a" stroke-width="1"/>
+            <use href="#pflame" x="4" y="-60" stroke="none"/>
+          </g>
+
+          <!-- 3. samai / brass deepstambh -->
+          <g transform="translate(440 160)">
+            <circle cx="-28" cy="-136" r="20" fill="url(#pglow)" stroke="none"/>
+            <circle cx="28" cy="-136" r="20" fill="url(#pglow)" stroke="none"/>
+            <path d="M-38 0 Q-34 -15 0 -18 Q34 -15 38 0 Z" fill="url(#pg)"/>
+            <rect x="-5" y="-118" width="10" height="102" fill="url(#pg)"/>
+            <ellipse cx="0" cy="-48" rx="13" ry="6" fill="url(#pg)"/>
+            <ellipse cx="0" cy="-86" rx="11" ry="5" fill="url(#pg)"/>
+            <path d="M-36 -122 Q0 -100 36 -122 Z" fill="url(#pg)"/>
+            <ellipse cx="0" cy="-122" rx="36" ry="5" fill="url(#pg)"/>
+            <path d="M0 -126 C -10 -134 -9 -150 0 -164 C 9 -150 10 -134 0 -126 Z" fill="url(#pg)"/>
+            <use href="#pflame" x="-28" y="-125" stroke="none"/>
+            <use href="#pflame" x="28" y="-125" stroke="none"/>
+          </g>
+
+          <!-- 4. sun wall art on a stand -->
+          <g transform="translate(616 160)">
+            <path d="M-8 -24 L-22 0 M8 -24 L22 0" stroke="url(#pg)" stroke-width="4" fill="none"/>
+            <g transform="translate(0 -84)" fill="url(#pg)">
+              <use href="#ray"/><use href="#ray" transform="rotate(45)"/><use href="#ray" transform="rotate(90)"/><use href="#ray" transform="rotate(135)"/>
+              <use href="#ray" transform="rotate(180)"/><use href="#ray" transform="rotate(225)"/><use href="#ray" transform="rotate(270)"/><use href="#ray" transform="rotate(315)"/>
+              <use href="#rayS" transform="rotate(22.5)"/><use href="#rayS" transform="rotate(67.5)"/><use href="#rayS" transform="rotate(112.5)"/><use href="#rayS" transform="rotate(157.5)"/>
+              <use href="#rayS" transform="rotate(202.5)"/><use href="#rayS" transform="rotate(247.5)"/><use href="#rayS" transform="rotate(292.5)"/><use href="#rayS" transform="rotate(337.5)"/>
+              <circle r="31"/>
+              <circle r="22" fill="none" stroke="#7a4a08" stroke-width="2"/>
+              <circle r="12" fill="none" stroke="#7a4a08" stroke-width="2"/>
+              <circle r="4" fill="#7a4a08" stroke="none"/>
+            </g>
+          </g>
+
+          <!-- 5. engraved vase with stems -->
+          <g transform="translate(792 160)">
+            <g stroke="#2f7d32" stroke-width="2.5" fill="none" stroke-linecap="round">
+              <path d="M-4 -114 C -10 -132 -20 -144 -28 -152"/><path d="M0 -114 C 0 -134 2 -148 4 -160"/><path d="M4 -114 C 12 -130 22 -140 30 -146"/>
+            </g>
+            <circle cx="-28" cy="-153" r="8" fill="url(#mari3)" stroke="#b5400a" stroke-width="1"/>
+            <circle cx="4" cy="-161" r="9" fill="url(#mari3)" stroke="#b5400a" stroke-width="1"/>
+            <circle cx="30" cy="-147" r="7.5" fill="url(#mari3)" stroke="#b5400a" stroke-width="1"/>
+            <path d="M-14 -118 L14 -118 L12 -102 C 40 -86 44 -32 22 -8 L26 0 L-26 0 L-22 -8 C -44 -32 -40 -86 -12 -102 Z" fill="url(#pg)"/>
+            <ellipse cx="0" cy="-118" rx="18" ry="4" fill="url(#pg)"/>
+            <path d="M-30 -78 C -10 -70, 10 -70, 30 -78 M-34 -40 C -12 -32, 12 -32, 34 -40" stroke="#7a4a08" stroke-width="2" fill="none"/>
+            <path d="M0 -70 L8 -56 L0 -42 L-8 -56 Z" fill="#c8102e" stroke="#7a4a08" stroke-width="1"/>
+          </g>
+        </g>
+      </svg>
+      <div class="shelf-cap">This Dhanteras, bring home handcrafted metal</div>
+    </div>
+
+    <div class="wish">May Maa Lakshmi &amp; Lord Dhanvantari bless your home with <b>wealth, health &amp; prosperity</b>, and make it shine like polished brass.</div>
+    <div class="from">With warm wishes · <strong>Team MCS</strong></div>
   </div>
 </div>
 
@@ -268,7 +420,7 @@
   let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
   for (let i = 0; i < 90; i++) {
     const x = 60 + rnd() * (W - 120), y = 200 + rnd() * (H - 280), s = 3 + rnd() * 9;
-    if (Math.abs(x - cx) < 400) continue; // keep the text column clear
+    if (Math.abs(x - cx) < 470) continue; // keep the text column clear
     el('path', { d: `M${x} ${y - s * 2} Q ${x} ${y} ${x + s * 2} ${y} Q ${x} ${y} ${x} ${y + s * 2} Q ${x} ${y} ${x - s * 2} ${y} Q ${x} ${y} ${x} ${y - s * 2} Z`, fill: '#ffe08a', opacity: .35 + rnd() * .5 });
   }
 </script>

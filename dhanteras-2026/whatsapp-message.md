@@ -57,3 +57,12 @@ May Maa Lakshmi bless your home with wealth, health & happiness. ✨
 - Send the image first with the message as its caption, so both arrive as one bubble.
 - Replace the `[placeholders]` in Option 2 before sending.
 - To change the poster text, edit `poster.html` and re-render with `node render.cjs` (needs Playwright).
+
+### Using your real logo
+The poster currently shows an **MCS monogram** placeholder. To use the official logo:
+1. Save it as `dhanteras-2026/logo.png` (transparent PNG, light/gold version reads best on maroon).
+2. Run `node render.cjs`. The logo replaces the monogram and the name line automatically.
+
+### Products on the poster
+The product shelf shows illustrated metal pieces: lantern, urli bowl, brass samai lamp, sun wall art, engraved vase.
+Swap or edit them in the `<!-- product shelf -->` section of `poster.html` to match the actual catalogue.

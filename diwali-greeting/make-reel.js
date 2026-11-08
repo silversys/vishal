@@ -21,13 +21,13 @@ const FPS = 30;
   page.on('pageerror', (e) => console.error('page error:', e.message));
   await page.goto('file://' + path.join(__dirname, 'reel.html') + '?' + params);
   await page.evaluate(() => window.fontsReady);
-  const { dur, fireworks } = await page.evaluate(() => ({ dur: window.DUR, fireworks: window.FIREWORKS }));
+  const { dur, hero, fireworks } = await page.evaluate(() => ({ dur: window.DUR, hero: window.HERO, fireworks: window.FIREWORKS }));
 
   // soundtrack synced to the firework schedule
   const fwJson = path.join(out, 'fireworks.json');
   const wav = path.join(out, 'soundtrack.wav');
   fs.writeFileSync(fwJson, JSON.stringify(fireworks));
-  execFileSync('python3', [path.join(__dirname, 'soundtrack.py'), fwJson, wav], { stdio: 'inherit' });
+  execFileSync('python3', [path.join(__dirname, 'soundtrack.py'), fwJson, wav, String(hero)], { stdio: 'inherit' });
 
   const mp4 = path.join(out, 'shubh-deepavali-reel.mp4');
   const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error',
@@ -46,8 +46,10 @@ const FPS = 30;
   await new Promise((r) => ff.on('close', r));
 
   // still greeting card (finale frame) as a high-quality PNG
-  await page.evaluate(() => render(25.4));
+  await page.evaluate((h) => render(25.4 + h), hero);
   await page.locator('canvas').screenshot({ path: path.join(out, 'shubh-deepavali-card.png') });
+  await page.evaluate(() => render(0));
+  await page.locator('canvas').screenshot({ path: path.join(out, 'shubh-deepavali-thumbnail.png') });
   await browser.close();
   fs.unlinkSync(fwJson);
   console.log('\nwrote', mp4);

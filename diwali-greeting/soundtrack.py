@@ -4,7 +4,10 @@ Layers: tanpura drone, bansuri-style melody, dholak (keherwa taal),
 temple bells on scene changes, coin chimes, and cracker sounds whose
 timing is read from the reel's firework schedule (fireworks.json).
 
-usage: python3 soundtrack.py fireworks.json out.wav
+usage: python3 soundtrack.py fireworks.json out.wav [hero_seconds]
+
+fireworks.json times are absolute (video time); everything else is
+scheduled on the story timeline and shifted by hero_seconds.
 """
 import json
 import sys
@@ -13,7 +16,8 @@ import wave
 import numpy as np
 
 SR = 44100
-DUR = 27.0
+OFF = float(sys.argv[3]) if len(sys.argv) > 3 else 0.0  # title-screen length
+DUR = 27.0 + OFF
 N = int(SR * DUR)
 rng = np.random.default_rng(7)
 SA = 146.83  # D3 as "Sa"
@@ -23,6 +27,8 @@ mix = np.zeros((N, 2))
 
 def add(sig, t0, gain=1.0, pan=0.0):
     i = int(t0 * SR)
+    if i < 0:
+        sig, i = sig[-i:], 0
     if i >= N:
         return
     sig = sig[: N - i]
@@ -77,7 +83,7 @@ def bell(f=880, d=3.5):
     return s * np.minimum(1, t / 0.002)
 
 
-for tb in [0.15, 4.6, 10.6, 15.6, 20.6]:
+for tb in [0.15] + [OFF + x for x in [0.15, 4.6, 10.6, 15.6, 20.6]][1 if OFF == 0 else 0:]:
     add(bell(), tb, 0.10, pan=0.15)
 
 
@@ -94,7 +100,7 @@ def flute(f, d):
 
 # notes as (semitones above Sa4, beats); one beat = 0.3 s
 B = 0.3
-phrases = [
+phrases = ([(-OFF + 0.25, [(0, 1), (4, 1), (7, 1), (12, 3)])] if OFF >= 1.8 else []) + [
     (0.4, [(0, 2), (2, 1), (4, 1), (7, 3), (9, 1), (7, 2), (4, 2), (2, 1), (4, 1), (0, 4)]),
     (4.9, [(7, 1), (9, 1), (11, 1), (12, 3), (11, 1), (9, 1), (7, 2), (9, 1), (7, 1), (4, 2), (2, 2), (4, 4),
            (4, 1), (7, 1), (9, 2), (7, 1), (9, 1), (12, 4)]),
@@ -106,7 +112,7 @@ phrases = [
             (9, 1), (11, 1), (12, 4), (7, 2), (12, 6)]),
 ]
 for start, notes in phrases:
-    t = start
+    t = start + OFF
     for s, beats in notes:
         add(flute(semis(s + 12), beats * B), t, 0.11, pan=0.1)
         t += beats * B
@@ -125,10 +131,10 @@ def dhol_high(f=520, d=0.18):
 
 
 pattern = ['LH', 'L', 'H', 'h', 'H', 'h', 'LH', 'H']
-t = 4.6
+t = 4.6 + OFF
 i = 0
 while t < DUR - 1.2:
-    g = 0.16 if t < 15.6 else 0.24
+    g = 0.16 if t < 15.6 + OFF else 0.24
     for c in pattern[i % 8]:
         if c == 'L':
             add(dhol_low(), t, g * 1.2, pan=-0.1)
@@ -147,7 +153,7 @@ def ping(f, d=0.6):
 
 
 for _ in range(38):
-    add(ping(rng.uniform(2200, 4200)), rng.uniform(11.0, 15.2), 0.035, pan=rng.uniform(-.8, .8))
+    add(ping(rng.uniform(2200, 4200)), OFF + rng.uniform(11.0, 15.2), 0.035, pan=rng.uniform(-.8, .8))
 
 
 # ---------- crackers ----------
@@ -182,7 +188,7 @@ for x, a, b in [(165, 16.4, 20.3), (915, 16.7, 20.3)]:
     t = tt(d)
     nz = rng.standard_normal(len(t))
     hiss = (nz - lowpass(nz, 2500)) * np.minimum(1, t / .3) * np.clip((d - t) / 1.0, 0, 1)
-    add(hiss, a, 0.05, (x - 540) / 600)
+    add(hiss, a + OFF, 0.05, (x - 540) / 600)
 
 # ---------- master ----------
 tm = np.arange(N) / SR

@@ -6,6 +6,7 @@ a 29-second WhatsApp reel, a still greeting card, and ready-to-paste WhatsApp me
 | File | What it is |
 |---|---|
 | `output/shubh-deepavali-reel.mp4` | 29 s vertical reel (1080×1920, 30 fps, H.264 + AAC, ~10 MB) for WhatsApp Status, chats or Instagram Reels |
+| `output/shubh-deepavali-whatsapp.mp4` | **Send this one on WhatsApp.** The same reel at 720×1280, H.264 Main profile, AAC-LC, ~7.6 MB, the format WhatsApp accepts on every phone |
 | `output/shubh-deepavali-thumbnail.png` | The reel's first frame, which is the title screen WhatsApp uses as the video thumbnail |
 | `output/shubh-deepavali-card.png` | Still greeting card (1080×1920) to send as a photo |
 | `WHATSAPP-MESSAGES.md` | 6 messages: Hindi (long and short), English, Hinglish, Status caption, and one for elders |

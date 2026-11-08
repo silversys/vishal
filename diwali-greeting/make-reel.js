@@ -45,6 +45,15 @@ const FPS = 30;
   ff.stdin.end();
   await new Promise((r) => ff.on('close', r));
 
+  // WhatsApp-safe copy: 720x1280, H.264 Main profile, AAC-LC. Some phones and
+  // WhatsApp versions refuse to send the 1080p High-profile file.
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', mp4, '-map', '0:v:0', '-map', '0:a:0', '-map_metadata', '-1',
+    '-vf', 'scale=720:1280:flags=lanczos,format=yuv420p', '-r', String(FPS),
+    '-c:v', 'libx264', '-profile:v', 'main', '-level', '3.1', '-preset', 'slow', '-crf', '22',
+    '-maxrate', '2000k', '-bufsize', '4000k', '-g', '60', '-tag:v', 'avc1',
+    '-c:a', 'aac', '-profile:a', 'aac_low', '-b:a', '128k', '-ar', '44100', '-ac', '2',
+    '-movflags', '+faststart', '-brand', 'mp42', path.join(out, 'shubh-deepavali-whatsapp.mp4')], { stdio: 'inherit' });
+
   // still greeting card (finale frame) as a high-quality PNG
   await page.evaluate((h) => render(25.4 + h), hero);
   await page.locator('canvas').screenshot({ path: path.join(out, 'shubh-deepavali-card.png') });
